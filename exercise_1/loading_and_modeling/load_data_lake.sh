@@ -3,8 +3,7 @@
 # save my current directory
 MY_CWD=$(pwd)
 
-# creating staging directories
-mkdir ~/staging
+# creating staging directory
 mkdir ~/staging/exercise_1
 
 # change to staging directory
@@ -35,12 +34,12 @@ tail -n +2 "$OLD_FILE_3" >$NEW_FILE_3
 
 #4
 OLD_FILE_4="Measure Dates.csv"
-NEW_FILE_4="Measures.csv"
+NEW_FILE_4="measures.csv"
 tail -n +2 "$OLD_FILE_4" >$NEW_FILE_4
 
 #5
 OLD_FILE_5="hvbp_hcahps_11_10_2016.csv"
-NEW_FILE_5="surveys_responses.csv"
+NEW_FILE_5="survey_responses.csv"
 tail -n +2 "$OLD_FILE_5" >$NEW_FILE_5
 
 # create our hdfs directory
