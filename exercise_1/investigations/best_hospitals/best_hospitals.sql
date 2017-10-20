@@ -39,13 +39,18 @@ GROUP BY provider_id
 ;
 
 
+DROP TABLE
+best_hospitals;
+
+CREATE TABLE
+best_hospitals as
 SELECT
 hospitals.provider_id,
 hospitals.hospital_name,
 hospitals.hospital_overall_rating as overall_rating,
-complications.avg_compared_to_national as avg_complications_rating,
-care_percentage.avg_percent as avg_care_percentage,
-care_times.avg_time as avg_care_time  
+cast(complications.avg_compared_to_national as decimal(4,3)) as avg_complications_rating,
+cast(care_percentage.avg_percent as decimal(4,2)) as avg_care_percentage,
+cast(care_times.avg_time as decimal(4,1)) as avg_care_time  
 FROM my_hospitals hospitals
 JOIN avg_complications_compared_to_national complications
 ON hospitals.provider_id = complications.provider_id
@@ -56,5 +61,7 @@ ON hospitals.provider_id = care_times.provider_id
 ORDER BY overall_rating DESC, avg_complications_rating DESC, avg_care_percentage DESC, avg_care_time 
 LIMIT 10
 ;
+
+SELECT * FROM best_hospitals;
 
 

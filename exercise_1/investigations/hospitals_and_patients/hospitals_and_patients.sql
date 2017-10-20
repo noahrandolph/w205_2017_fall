@@ -182,3 +182,6 @@ hospital_rank_by_measures_std_dev as meas_std_dev
 CROSS JOIN
 hospital_rank_by_surveys_std_dev as surv_std_dev
 ;
+
+
+SELECT * FROM spearmans_rank_correlation_coeff;
