@@ -62,15 +62,24 @@ ON hospitals.provider_id = care_times.provider_id
 ORDER BY overall_rating DESC, avg_complications_rating DESC, avg_care_percentage DESC, avg_care_time 
 ;
 
+
+DROP TABLE
+best_states;
+
+CREATE TABLE
+best_states as
 SELECT
 state,
-AVG(overall_rating) as avg_overall_rating,
-AVG(avg_complications_rating) as avg_complications_rating,
-AVG(avg_care_percentage) as avg_care_percentage,
-AVG(avg_care_time) as avg_care_time
+cast(AVG(overall_rating) as decimal(4,3)) as avg_overall_rating,
+cast(AVG(avg_complications_rating) as decimal(4,3)) as avg_complications_rating,
+cast(AVG(avg_care_percentage) as decimal(4,2)) as avg_care_percentage,
+cast(AVG(avg_care_time) as decimal(4,2)) as avg_care_time
 FROM hospital_rankings
 GROUP BY state
 ORDER BY avg_overall_rating DESC, avg_complications_rating DESC, avg_care_percentage DESC, avg_care_time 
 LIMIT 10
 ;
+
+
+SELECT * FROM best_states;
 

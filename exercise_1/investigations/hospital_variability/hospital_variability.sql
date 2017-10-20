@@ -123,7 +123,11 @@ ON std_dev.measure_id = means.measure_id
 ;
 
 
+DROP TABLE
+greatest_procedure_variability;
 
+CREATE TABLE
+greatest_procedure_variability as
 SELECT
 measure_id,
 cast(coef_of_var as decimal(3,2)) as coef_of_var
@@ -145,3 +149,6 @@ FROM effective_care_time_coef_of_variation
 ORDER BY coef_of_var DESC
 LIMIT 10
 ;
+
+
+SELECT * FROM greatest_procedure_variability;
