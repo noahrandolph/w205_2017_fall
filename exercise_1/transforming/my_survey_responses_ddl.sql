@@ -59,8 +59,9 @@ CASE WHEN overall_rating_of_hospital_improvement_points = '10 out of 10' THEN 10
 CASE WHEN overall_rating_of_hospital_dimension_score = '10 out of 10' THEN 10
      ELSE cast(substr(overall_rating_of_hospital_dimension_score,1,1) as decimal(1,0)) 
      END AS overall_rating_of_hospital_dimension_score,
-hcahps_base_score, 
-hcahps_consistency_score 
+cast(hcahps_base_score as decimal(2,0)) as hcahps_base_score, 
+cast(hcahps_consistency_score as decimal(2,0)) as hcahps_consistency_score,
+cast(hcahps_base_score + hcahps_consistency_score as decimal(3,0)) as patient_experience_of_care_domain_score
 FROM survey_responses
 WHERE communication_with_nurses_improvement_points NOT LIKE 'Not%'
 AND communication_with_doctors_improvement_points NOT LIKE 'Not%'
