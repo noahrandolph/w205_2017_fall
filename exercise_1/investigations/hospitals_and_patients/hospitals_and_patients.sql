@@ -175,7 +175,7 @@ spearmans_rank_correlation_coeff;
 CREATE TABLE
 spearmans_rank_correlation_coeff as
 SELECT
-covariance.covariance/(meas_std_dev.standard_deviation * surv_std_dev.standard_deviation) as correlation_coefficient
+cast(covariance.covariance/(meas_std_dev.standard_deviation * surv_std_dev.standard_deviation) as decimal(4,3)) as correlation_coefficient
 FROM hospital_rank_covariance as covariance
 CROSS JOIN
 hospital_rank_by_measures_std_dev as meas_std_dev
