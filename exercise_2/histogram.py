@@ -39,5 +39,3 @@ for rec in records:
         print "%s: %d" %(rec[0], rec[1])
 
 conn.commit()
-
-
