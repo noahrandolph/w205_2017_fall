@@ -23,4 +23,3 @@ Running the Twitter Steam Word Count Application
 10. Get the words with counts between numbers of your choosing by entering “python histogram.py [x1],[x2]” where [x1] is a lower bound integer and [x2] is an upper bound integer. 
 
 The longer the process is allowed to run in step 8, the more words will result.
-
